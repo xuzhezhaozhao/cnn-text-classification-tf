@@ -205,6 +205,7 @@ def train(x_train, y_train, vocab_processor, x_dev, y_dev):
             # Training loop. For each batch...
             for batch in batches:
                 x_batch, y_batch = zip(*batch)
+                print(x_batch[0].shape)
                 train_step(x_batch, y_batch)
                 current_step = tf.train.global_step(sess, global_step)
                 if current_step % FLAGS.evaluate_every == 0:
